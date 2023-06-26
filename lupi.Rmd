@@ -1,0 +1,24 @@
+---
+title: "lupi"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+data <- readxl::read_excel("Olah Data FTS.xlsx")
+```
+
+```{r}
+# Then you can create the xts format:
+don=xts( x=data[,-1], order.by=data$Periode)
+```
+
+```{r}
+# Chart
+p <- dygraph(don)
+p
+```
+
